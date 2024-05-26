@@ -7,7 +7,6 @@ package motorphemployee;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -19,6 +18,7 @@ public class MainMenu extends javax.swing.JFrame {
     /**
      * Creates new form MainMenu
      */
+    
     public MainMenu() {
         initComponents();
         loadCSVData();
@@ -45,14 +45,12 @@ public class MainMenu extends javax.swing.JFrame {
         if ((line = br.readLine()) != null) {
             String[] columns = line.split(cvsSplitBy);
             model.setColumnIdentifiers(columns);
-            System.out.println("Columns: " + Arrays.toString(columns)); // Debugging
         }
 
         // Read data rows and add to table
         while ((line = br.readLine()) != null) {
             String[] data = line.split(cvsSplitBy);
             model.addRow(data);
-            System.out.println("Data: " + Arrays.toString(data)); // Debugging
         }
 
     } catch (IOException e) {
@@ -112,6 +110,10 @@ public class MainMenu extends javax.swing.JFrame {
         txthourlyrate = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         txttin = new javax.swing.JTextField();
+        button_calculatesalary = new javax.swing.JButton();
+        button_cleartext = new javax.swing.JButton();
+        leave_overview = new javax.swing.JButton();
+        button_information = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,14 +124,15 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        button_update.setText("Update");
+        button_update.setText("Update Details");
         button_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_updateActionPerformed(evt);
             }
         });
 
-        button_delete.setText("Delete");
+        button_delete.setBackground(new java.awt.Color(204, 0, 0));
+        button_delete.setText("Delete User");
         button_delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_deleteActionPerformed(evt);
@@ -233,9 +236,16 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel16.setText("Benefits");
+        jLabel16.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel16.setText("Benefits:");
 
         jLabel17.setText("Rice Subsidy");
+
+        txtrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtriceActionPerformed(evt);
+            }
+        });
 
         jLabel18.setText("Phone Allowance");
 
@@ -247,7 +257,8 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel20.setText("Salary Information");
+        jLabel20.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel20.setText("Salary Information:");
 
         jLabel21.setText("Basic Salary");
 
@@ -263,6 +274,34 @@ public class MainMenu extends javax.swing.JFrame {
 
         jLabel24.setText("TIN #:");
 
+        button_calculatesalary.setText("Calculate Salary");
+        button_calculatesalary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_calculatesalaryActionPerformed(evt);
+            }
+        });
+
+        button_cleartext.setText("Clear Text");
+        button_cleartext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_cleartextActionPerformed(evt);
+            }
+        });
+
+        leave_overview.setText("Leave Overview");
+        leave_overview.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leave_overviewActionPerformed(evt);
+            }
+        });
+
+        button_information.setText("View Information");
+        button_information.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_informationActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -275,7 +314,8 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(button_add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(button_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,30 +333,29 @@ public class MainMenu extends javax.swing.JFrame {
                                 .addComponent(txtphonenumber)
                                 .addComponent(txtbirthday)
                                 .addComponent(txtid)))
-                        .addGap(115, 115, 115)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel9)
+                        .addGap(91, 91, 91)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtsss)
-                            .addComponent(jLabel10)
                             .addComponent(txtphilhealth)
-                            .addComponent(jLabel11)
-                            .addComponent(txtpagibig)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13)
-                            .addComponent(txtstatus)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
                             .addComponent(txtposition)
                             .addComponent(txtsupervisor)
-                            .addComponent(jLabel24)
-                            .addComponent(txttin, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE))
-                        .addGap(115, 115, 115)
+                            .addComponent(txtpagibig)
+                            .addComponent(txttin)
+                            .addComponent(txtstatus)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel24))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(button_update, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(button_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel17)
                             .addComponent(jLabel16)
                             .addComponent(txtrice)
@@ -330,8 +369,17 @@ public class MainMenu extends javax.swing.JFrame {
                             .addComponent(jLabel22)
                             .addComponent(txtgrosssemi)
                             .addComponent(jLabel23)
-                            .addComponent(txthourlyrate))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txthourlyrate))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(button_calculatesalary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(button_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(leave_overview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(button_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(button_information, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(button_cleartext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,53 +401,14 @@ public class MainMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtlastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtfirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtbirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txttin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtphonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(txtgrosssemi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel23)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txthourlyrate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(button_update)
-                            .addComponent(button_delete))
-                        .addGap(22, 22, 22))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(jLabel17))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtsss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_cleartext))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
@@ -423,10 +432,6 @@ public class MainMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtbasicsalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel22))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel13)
@@ -439,43 +444,96 @@ public class MainMenu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtsupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(txtsupervisor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtbasicsalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel22))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(button_information)
+                            .addGap(31, 31, 31)
+                            .addComponent(button_calculatesalary)
+                            .addGap(29, 29, 29)
+                            .addComponent(button_update)
+                            .addGap(26, 26, 26)
+                            .addComponent(leave_overview)
+                            .addGap(18, 18, 18)
+                            .addComponent(button_delete))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtlastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtfirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel5))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtbirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txttin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel6)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtphonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel7)
+                                .addComponent(txtgrosssemi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel23)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txthourlyrate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1460, 868));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_addActionPerformed
-        // TODO add your handling code here:
-        if(txtid.getText().equals("") || txtaddress.getText().equals("") || txtbasicsalary.getText().equals("") || txtbirthday.getText().equals("") || txtclothing.getText().equals("") || txtfirstname.getText().equals("") || txtgrosssemi.getText().equals("") || txthourlyrate.getText().equals("") || txtlastname.getText().equals("") || txtpagibig.getText().equals("") || txtphilhealth.getText().equals("") || txtphone.getText().equals("") || txtphonenumber.getText().equals("") || txtposition.getText().equals("") || txtrice.getText().equals("") || txtsss.getText().equals("") || txtstatus.getText().equals("") || txtsupervisor.getText().equals("") || txttin.getText().equals("")) {
-    // Handle the case where at least one field is empty
-    JOptionPane.showMessageDialog(this, "Please Enter All Data");
-} else {
-            String data[] = {
-    txtid.getText(),               // Employee #
-    txtaddress.getText(),          // Last Name
-    txtbasicsalary.getText(),      // First Name
-    txtbirthday.getText(),         // Birthday
-    txtclothing.getText(),         // Address
-    txtfirstname.getText(),        // Phone Number
-    txtsss.getText(),              // SSS #
-    txtphilhealth.getText(),       // Philhealth #
-    txttin.getText(),              // TIN #
-    txtpagibig.getText(),          // Pag-ibig #
-    txtstatus.getText(),           // Status
-    txtposition.getText(),         // Position
-    txtsupervisor.getText(),       // Immediate Supervisor
-    txtbasicsalary.getText(),      // Basic Salary
-    txtrice.getText(),             // Rice Subsidy
-    txtsss.getText(),              // Phone Allowance (assuming this was intended)
-    txtclothing.getText(),         // Clothing Allowance
-    txtgrosssemi.getText(),        // Gross Semi-monthly Rate
-    txthourlyrate.getText()        // Hourly Rate
-};
-                    DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
-                    tblModel.addRow(data);
-
-    // Proceed with your logic, as all fields are filled
+        // TODO add your handling code here:                                         
+        if(txtid.getText().isEmpty() || txtaddress.getText().isEmpty() || txtbasicsalary.getText().isEmpty() || txtbirthday.getText().isEmpty() || txtclothing.getText().isEmpty() || txtfirstname.getText().isEmpty() || txtgrosssemi.getText().isEmpty() || txthourlyrate.getText().isEmpty() || txtlastname.getText().isEmpty() || txtpagibig.getText().isEmpty() || txtphilhealth.getText().isEmpty() || txtphone.getText().isEmpty() || txtphonenumber.getText().isEmpty() || txtposition.getText().isEmpty() || txtrice.getText().isEmpty() || txtsss.getText().isEmpty() || txtstatus.getText().isEmpty() || txtsupervisor.getText().isEmpty() || txttin.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter All Data");
+        } else {
+            
+            int id = Integer.parseInt(txtid.getText());
+            String lastName = txtlastname.getText();
+            String firstName = txtfirstname.getText();
+            String birthday = txtbirthday.getText();
+            String address = txtaddress.getText();
+            String phoneNumber = txtphonenumber.getText();
+            String sss = txtsss.getText();
+            String philhealth = txtphilhealth.getText();
+            String tin = txttin.getText();
+            String pagibig = txtpagibig.getText();
+            String status = txtstatus.getText();
+            String position = txtposition.getText();
+            String supervisor = txtsupervisor.getText();
+            double basicSalary = Double.parseDouble(txtbasicsalary.getText());
+            double clothingAllowance = Double.parseDouble(txtclothing.getText());
+            double riceSubsidy = Double.parseDouble(txtrice.getText());
+            double phoneAllowance = Double.parseDouble(txtphone.getText());
+            double grossSemiMonthlyRate = Double.parseDouble(txtgrosssemi.getText());
+            double hourlyRate = Double.parseDouble(txthourlyrate.getText());
+            
+            // Add data to table
+            Object[] rowData = { id, lastName, firstName, birthday, address, phoneNumber, sss, philhealth, tin, pagibig, status, position, supervisor, basicSalary, riceSubsidy, phoneAllowance, clothingAllowance, grossSemiMonthlyRate, hourlyRate };
+            DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+            tblModel.addRow(rowData);
+        
+    
 }
 
     }//GEN-LAST:event_button_addActionPerformed
@@ -510,7 +568,7 @@ public class MainMenu extends javax.swing.JFrame {
         String riceSubsidy = txtrice.getText();
         String phoneAllowance = txtphone.getText();
         String clothingAllowance = txtclothing.getText();
-        String grossSemiMonthlyRate = txtgrosssemi.getText();
+        String grossSemiMonthlyRate = txtgrosssemi.getText( );
         String hourlyRate = txthourlyrate.getText();
         
         // Set the updated values in the selected row
@@ -534,7 +592,7 @@ public class MainMenu extends javax.swing.JFrame {
         tblModel.setValueAt(grossSemiMonthlyRate, jTable1.getSelectedRow(), 17);
         tblModel.setValueAt(hourlyRate, jTable1.getSelectedRow(), 18);
         
-        //update message display if successful
+        //Update message display if successful
         
         JOptionPane.showMessageDialog(this, "Update Successfully");
         
@@ -586,7 +644,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
             
-// Retrieve the table model
+    // Retrieve the table model
     DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
     
     // Get the selected row index
@@ -635,32 +693,384 @@ public class MainMenu extends javax.swing.JFrame {
         txtphone.setText(phoneAllowance);
         txtclothing.setText(clothingAllowance);
         txtgrosssemi.setText(grossSemiMonthlyRate);
-        txthourlyrate.setText(hourlyRate);
-      
+        txthourlyrate.setText(hourlyRate);   
 }
      
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_deleteActionPerformed
-        // TODO add your handling code here:
-        // get jtable model
-        DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+        // TODO add your handling code here:                                              
+    // Get the selected row count
+    int selectedRowCount = jTable1.getSelectedRowCount();
+    
+    // Check if exactly one row is selected
+    if (selectedRowCount == 1) {
+        // Prompt the user for confirmation
+        int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete the selected row?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
         
-        //delete row
-        if (jTable1.getSelectedRowCount()==1){
-            //if single row selected then delete
+        // Check user's response
+        if (option == JOptionPane.YES_OPTION) {
+            // If user confirms deletion, delete the selected row
+            DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
             tblModel.removeRow(jTable1.getSelectedRow());
+        }
+    } else {
+        if (jTable1.getRowCount() == 0) {
+            // If the table is empty, display a message
+            JOptionPane.showMessageDialog(this, "Table is Empty");
         } else {
-            if(jTable1.getRowCount()==0){
-                //if the table is empty (no data) display message
-                JOptionPane.showMessageDialog(this, "Table is Empty");
-            }  else {
-                // if table is not empty but row is not selected or multiple is selected
-                 JOptionPane.showMessageDialog(this, "Please select single row for delete.");  
-            }}
-   
+            // If multiple rows are selected or no row is selected, display a message
+            JOptionPane.showMessageDialog(this, "Please select a single row for deletion.");
+        }
+    }
     }//GEN-LAST:event_button_deleteActionPerformed
 
+    private void button_calculatesalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_calculatesalaryActionPerformed
+        // TODO add your handling code here:
+        // Retrieve the table model
+    DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+    
+    // Get the selected row index
+    int selectedRowIndex = jTable1.getSelectedRow();
+    
+    // Ensure a row is selected
+    if (selectedRowIndex != -1) {
+        // Retrieve values from the selected row
+        String id = tblModel.getValueAt(selectedRowIndex, 0).toString();
+        String lastName = tblModel.getValueAt(selectedRowIndex, 1).toString();
+        String firstName = tblModel.getValueAt(selectedRowIndex, 2).toString();
+        String birthday = tblModel.getValueAt(selectedRowIndex, 3).toString();
+        String address = tblModel.getValueAt(selectedRowIndex, 4).toString();
+        String phoneNumber = tblModel.getValueAt(selectedRowIndex, 5).toString();
+        String sss = tblModel.getValueAt(selectedRowIndex, 6).toString();
+        String philhealth = tblModel.getValueAt(selectedRowIndex, 7).toString();
+        String tin = tblModel.getValueAt(selectedRowIndex, 8).toString();
+        String pagibig = tblModel.getValueAt(selectedRowIndex, 9).toString();
+        String status = tblModel.getValueAt(selectedRowIndex, 10).toString();
+        String position = tblModel.getValueAt(selectedRowIndex, 11).toString();
+        String supervisor = tblModel.getValueAt(selectedRowIndex, 12).toString();
+        String basicSalaryStr = tblModel.getValueAt(selectedRowIndex, 13).toString();
+        String riceSubsidyStr = tblModel.getValueAt(selectedRowIndex, 14).toString();
+        String phoneAllowanceStr = tblModel.getValueAt(selectedRowIndex, 15).toString();
+        String clothingAllowanceStr = tblModel.getValueAt(selectedRowIndex, 16).toString();
+        String grossSemiMonthlyRateStr = tblModel.getValueAt(selectedRowIndex, 17).toString();
+        String hourlyRateStr = tblModel.getValueAt(selectedRowIndex, 18).toString();
+        
+        // Convert string to double
+        double hourlyRate = Double.parseDouble(hourlyRateStr);
+
+        // Assuming number of worked days is entered by the user
+        int workedDays = 0;
+            boolean validInput = false;
+
+            while (!validInput) {
+                String input = JOptionPane.showInputDialog("Enter worked days:");
+    
+                if (input == null) {
+                // If the user clicks "Cancel", exit the loop or handle it accordingly
+                 JOptionPane.showMessageDialog(null, "Operation cancelled.");
+                    return; // Exit the method if in a method, or handle appropriately
+             }
+    
+             try {
+                    workedDays = Integer.parseInt(input);
+                 if (workedDays <= 0) {
+                        JOptionPane.showMessageDialog(null, "Please enter a positive number for worked days.");
+                    } else {
+                        validInput = true;
+                    }
+              } catch (NumberFormatException e) {
+                 JOptionPane.showMessageDialog(null, "Please enter a valid integer for worked days.");
+         }
+        }
+        // Calculate total salary
+        double totalSalary = workedDays * hourlyRate * 8; //Assuming working 8 hours a day
+
+        // Call SSS, PhilHealth, Pagibig methods
+        double sssContribution = calculateSSSContribution(totalSalary);
+        double philhealthContribution = calculatePhilHealthContribution(totalSalary);
+        double pagibigContribution = calculatePagibigContribution(totalSalary);
+        
+        // Calculate total deductions withouyt WithHolding Tax
+        double grossDeductions = sssContribution + philhealthContribution + pagibigContribution;
+        
+        // Calculate Salary After Tax
+        double salaryAfterTax = totalSalary - grossDeductions;
+        
+        // Call Withholding Tax methods
+        double withholdingTax = calculateWithholdingTax(salaryAfterTax);
+        
+        // Calculate Net Pay
+        double netPay = salaryAfterTax - withholdingTax;
+        
+        // Display salary and deductions in a dialog
+        String message = "Employee: " + firstName + " " + lastName + "\n";
+        message += "Worked Days: " + workedDays + "\n";
+        message += "Gross Salary: PHP " + String.format("%.2f", totalSalary) + "\n";
+        message += "SSS Contribution: PHP " + String.format("%.2f", sssContribution) + "\n";
+        message += "PhilHealth Contribution: PHP " + String.format("%.2f", philhealthContribution) + "\n";
+        message += "Pagibig Contribution: PHP " + String.format("%.2f", pagibigContribution) + "\n";
+        message += "Withholding Tax: PHP " + String.format("%.2f", withholdingTax) + "\n";
+        message += "Total Deduction: PHP " +  String.format("%.2f", grossDeductions) + "\n";
+        message += "Net Pay: PHP " + String.format("%.2f", netPay) + "\n";
+
+        JOptionPane.showMessageDialog(this, message);
+    } else {
+        JOptionPane.showMessageDialog(this, "Please select a row to calculate salary.");
+    }
+    }//GEN-LAST:event_button_calculatesalaryActionPerformed
+
+    private void button_cleartextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_cleartextActionPerformed
+        // TODO add your handling code here:
+        
+    //Clear text
+    txtid.setText("");
+    txtaddress.setText("");
+    txtbasicsalary.setText("");
+    txtbirthday.setText("");
+    txtclothing.setText("");
+    txtfirstname.setText("");
+    txtgrosssemi.setText("");
+    txthourlyrate.setText("");
+    txtlastname.setText("");
+    txtpagibig.setText("");
+    txtphilhealth.setText("");
+    txtphone.setText("");
+    txtphonenumber.setText("");
+    txtposition.setText("");
+    txtrice.setText("");
+    txtsss.setText("");
+    txtstatus.setText("");
+    txtsupervisor.setText("");
+    txttin.setText("");
+    }//GEN-LAST:event_button_cleartextActionPerformed
+
+    private void txtriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtriceActionPerformed
+
+    private void button_informationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_informationActionPerformed
+        // TODO add your handling code here:
+        // Retrieve the table model
+    DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+    
+    // Get the selected row index
+    int selectedRowIndex = jTable1.getSelectedRow();
+    
+    // Ensure a row is selected
+    if (selectedRowIndex != -1) {
+        // Retrieve values from the selected row
+        String id = tblModel.getValueAt(selectedRowIndex, 0).toString();
+        String lastName = tblModel.getValueAt(selectedRowIndex, 1).toString();
+        String firstName = tblModel.getValueAt(selectedRowIndex, 2).toString();
+        String birthday = tblModel.getValueAt(selectedRowIndex, 3).toString();
+        String address = tblModel.getValueAt(selectedRowIndex, 4).toString();
+        String phoneNumber = tblModel.getValueAt(selectedRowIndex, 5).toString();
+        String sss = tblModel.getValueAt(selectedRowIndex, 6).toString();
+        String philhealth = tblModel.getValueAt(selectedRowIndex, 7).toString();
+        String tin = tblModel.getValueAt(selectedRowIndex, 8).toString();
+        String pagibig = tblModel.getValueAt(selectedRowIndex, 9).toString();
+        String status = tblModel.getValueAt(selectedRowIndex, 10).toString();
+        String position = tblModel.getValueAt(selectedRowIndex, 11).toString();
+        String supervisor = tblModel.getValueAt(selectedRowIndex, 12).toString();
+        String basicSalary = tblModel.getValueAt(selectedRowIndex, 13).toString();;
+        String riceSubsidy = tblModel.getValueAt(selectedRowIndex, 14).toString();;
+        String phoneAllowance = tblModel.getValueAt(selectedRowIndex, 15).toString();;
+        String clothingAllowance = tblModel.getValueAt(selectedRowIndex, 16).toString();;
+        String grossSemiMonthlyRate = tblModel.getValueAt(selectedRowIndex, 17).toString();;
+        String hourlyRate = tblModel.getValueAt(selectedRowIndex, 18).toString();;
+        
+        // Display the information in a dialog
+        String message = "Employee ID: " + id + "\n";
+        message += "Last Name: " + lastName + "\n";
+        message += "First Name: " + firstName + "\n";
+        message += "Birthday: " + birthday + "\n";
+        message += "Address: " + address + "\n";
+        message += "Phone Number: " + phoneNumber + "\n";
+        message += "SSS: " + sss + "\n";
+        message += "Philhealth: " + philhealth + "\n";
+        message += "TIN: " + tin + "\n";
+        message += "Pag-ibig: " + pagibig + "\n";
+        message += "Status: " + status + "\n";
+        message += "Position: " + position + "\n";
+        message += "Supervisor: " + supervisor + "\n";
+        message += "Basic Salary: " + basicSalary + "\n";
+        message += "Rice Subsidy: " + riceSubsidy + "\n";
+        message += "Phone Allowance: " + phoneAllowance + "\n";
+        message += "Clothing Allowance: " + clothingAllowance + "\n";
+        message += "Gross Semi-monthly Rate: " + grossSemiMonthlyRate + "\n";
+        message += "Hourly Rate: " + hourlyRate + "\n";
+        
+        JOptionPane.showMessageDialog(this, message);
+    } else {
+        JOptionPane.showMessageDialog(this, "Please select a row to view information.");
+    }
+    }//GEN-LAST:event_button_informationActionPerformed
+
+    private void leave_overviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leave_overviewActionPerformed
+        // TODO add your handling code here:
+        // Will add new function here soon
+    }//GEN-LAST:event_leave_overviewActionPerformed
+    // Will transfer this methods on other file soon
+    //SSS Method
+            public static double calculateSSSContribution(double totalSalary) {
+                double sssContribution = 0;
+                
+                if (totalSalary <= 3250) {
+                    sssContribution = 135;
+                } else if (totalSalary <= 3750) {
+                    sssContribution = 157.50;
+                } else if (totalSalary <= 4250) {
+                    sssContribution = 180;
+                } else if (totalSalary <= 4750) {
+                    sssContribution = 202.50;
+                } else if (totalSalary <= 5250) {
+                    sssContribution = 225;
+                } else if (totalSalary <= 5750) {
+                    sssContribution = 247.50;
+                } else if (totalSalary <= 6250) {
+                    sssContribution = 270;
+                } else if (totalSalary <= 6750) {
+                    sssContribution = 292.50;
+                } else if (totalSalary <= 7250) {
+                    sssContribution = 315;
+                } else if (totalSalary <= 7750) {
+                    sssContribution = 337.50;
+                } else if (totalSalary <= 8250) {
+                    sssContribution = 360;
+                } else if (totalSalary <= 8750) {
+                    sssContribution = 382.50;
+                } else if (totalSalary <= 9250) {
+                    sssContribution = 405;
+                } else if (totalSalary <= 9750) {
+                    sssContribution = 427.50;
+                } else if (totalSalary <= 10250) {
+                    sssContribution = 450;
+                } else if (totalSalary <= 10750) {
+                    sssContribution = 472.50;
+                } else if (totalSalary <= 11250) {
+                    sssContribution = 495;
+                } else if (totalSalary <= 11750) {
+                    sssContribution = 517.50;
+                } else if (totalSalary <= 12250) {
+                    sssContribution = 540;
+                } else if (totalSalary <= 12750) {
+                    sssContribution = 562.50;
+                } else if (totalSalary <= 13250) {
+                    sssContribution = 585;
+                } else if (totalSalary <= 13750) {
+                    sssContribution = 607.50;
+                } else if (totalSalary <= 14250) {
+                    sssContribution = 630;
+                } else if (totalSalary <= 14750) {
+                    sssContribution = 652.50;
+                } else if (totalSalary <= 15250) {
+                    sssContribution = 675;
+                } else if (totalSalary <= 15750) {
+                    sssContribution = 697.50;
+                } else if (totalSalary <= 16250) {
+                    sssContribution = 720;
+                } else if (totalSalary <= 16750) {
+                    sssContribution = 742.50;
+                } else if (totalSalary <= 17250) {
+                    sssContribution = 765;
+                } else if (totalSalary <= 17750) {
+                    sssContribution = 787.50;
+                } else if (totalSalary <= 18250) {
+                    sssContribution = 810;
+                } else if (totalSalary <= 18750) {
+                    sssContribution = 832.50;
+                } else if (totalSalary <= 19250) {
+                    sssContribution = 855;
+                } else if (totalSalary <= 19750) {
+                    sssContribution = 877.50;
+                } else if (totalSalary <= 20250) {
+                    sssContribution = 900;
+                } else if (totalSalary <= 20750) {
+                    sssContribution = 922.50;
+                } else if (totalSalary <= 21250) {
+                    sssContribution = 945;
+                } else if (totalSalary <= 21750) {
+                    sssContribution = 967.50;
+                } else if (totalSalary <= 22250) {
+                    sssContribution = 990;
+                } else if (totalSalary <= 22750) {
+                    sssContribution = 1012.50;
+                } else if (totalSalary <= 23250) {
+                    sssContribution = 1035;
+                } else if (totalSalary <= 23750) {
+                    sssContribution = 1057.50;
+                } else if (totalSalary <= 24250) {
+                    sssContribution = 1080;
+                } else if (totalSalary <= 24750) {
+                    sssContribution = 1102.50;
+                } else {
+                    sssContribution = 1125;
+                }
+            
+                return sssContribution;
+            }
+
+            //Philhealth Method
+            public static double calculatePhilHealthContribution(double totalSalary) {
+                double premiumRate = 0.03; // 3% Premium Rate
+        
+                // Calculate monthly premium based on salary range
+                double monthlyPremium;
+                if (totalSalary <= 10000) {
+                    monthlyPremium = 300;
+                } else if (totalSalary <= 59999.99) {
+                    monthlyPremium = Math.min(300 + (totalSalary - 10000) * premiumRate, 1800);
+                } else {
+                    monthlyPremium = 1800;
+                }
+        
+                // Employee and employer share equally
+                return monthlyPremium;
+            }
+
+            //Pagibig Method
+            public static double calculatePagibigContribution(double totalSalary) {
+                double employeeContributionRate = 0;
+                double employerContributionRate = 0;
+                double totalContributionRate = 0;
+        
+                if (totalSalary >= 1000 && totalSalary <= 1500) {
+                    employeeContributionRate = 0.01;
+                    employerContributionRate = 0.02;
+                    totalContributionRate = employeeContributionRate + employerContributionRate;
+                } else if (totalSalary > 1500) {
+                    employeeContributionRate = 0.02;
+                    employerContributionRate = 0.02;
+                    totalContributionRate = employeeContributionRate + employerContributionRate;
+                }
+        
+                // Calculate the contribution amount
+                double totalContribution = Math.min(totalSalary * totalContributionRate, 100); // Maximum contribution is 100
+        
+                return totalContribution;
+            }
+
+            //Withholding Tax Method
+            public static double calculateWithholdingTax(double salaryAfterTax) {
+                double withholdingTax = 0;
+        
+                if (salaryAfterTax <= 20832) {
+                    withholdingTax = 0;
+                } else if (salaryAfterTax <= 33333) {
+                    withholdingTax = (salaryAfterTax - 20832) * 0.20;
+                } else if (salaryAfterTax <= 66667) {
+                    withholdingTax = 2500 + (salaryAfterTax - 33333) * 0.25;
+                } else if (salaryAfterTax <= 166667) {
+                    withholdingTax = 10833 + (salaryAfterTax - 66667) * 0.30;
+                } else if (salaryAfterTax <= 666667) {
+                    withholdingTax = 40833.33 + (salaryAfterTax - 166667) * 0.32;
+                } else {
+                    withholdingTax = 200833.33 + (salaryAfterTax - 666667) * 0.35;
+                }
+        
+                return withholdingTax;
+            }
     /**
      * @param args the command line arguments
      */
@@ -698,8 +1108,11 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_add;
+    private javax.swing.JButton button_calculatesalary;
+    private javax.swing.JButton button_cleartext;
     private javax.swing.JButton button_delete;
     private javax.swing.JButton button_exit;
+    private javax.swing.JButton button_information;
     private javax.swing.JButton button_update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -727,6 +1140,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton leave_overview;
     private javax.swing.JTextField txtaddress;
     private javax.swing.JTextField txtbasicsalary;
     private javax.swing.JTextField txtbirthday;
