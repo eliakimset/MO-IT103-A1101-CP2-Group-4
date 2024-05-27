@@ -6,6 +6,7 @@ and satisfy our client's needs. In addition, we also integrated a database in wh
 ![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/161408413/5c6f80b7-2fd8-4938-938b-00868f77a08c)
 
 Username: admin
+
 Password: password
 
 ![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/161408413/3d6cf382-044d-4273-936c-5afa2313273f)
