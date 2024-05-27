@@ -4,6 +4,7 @@
  */
 package motorphemployee;
 
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +18,12 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        
+        //fixed frame
+        this.setResizable(false); 
+        //Set Icon image
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("MotorIcon.png")));
+        
     }
 
     /**
