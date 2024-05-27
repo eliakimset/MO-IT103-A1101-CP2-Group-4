@@ -17,3 +17,13 @@ Password: password
 private String csvFile = "/Users/set/Downloads/MotorPHEmployee/src/motorphemployee/data.csv"; //change depends on the file location of csv
 ```
 Locate your CSV File location first and apply it on inside of that string
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- [x] Features 1 : Provision of a more intuitive and interactive interface in the MotorPH Employee App by implementing a version of the application that has a Graphical User Interface based on the class diagram that you have designed. The application should be able to handle errors in the input of the users.
+- [ ] Features 2 : The current version of MotorPH Employee App only displays the information of an employee together with his/her pay details once prompted. This change request aims to provide a more intuitive and interactive interface in the MotorPH Employee App by incorporating employee record views.This includes:  
+(1) View of all employee records;  
+(2) View of specific Emloyee Record;  
+(3) View of the Pay Details of a specific employee.
+- [ ] Features 3 : Employee records must be updated and deleted as needed. Current version does not have the functionality to update and delete records from the file.
+- [ ] Features 4 : Leave application is currently not a part of the application, it needs to be included in the functionalities of the MotorPH Employee application
+- [ ] Features 5 : To make the application secure, the users of the application must enter their correct login credentials to be able to access the application properly.
