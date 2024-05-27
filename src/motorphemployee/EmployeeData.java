@@ -6,7 +6,7 @@ public class EmployeeData {
    
     public static void main(String [] args){
     
-    String path = "/Users/set/Downloads/Employee Data.csv";
+    String path = "Employee Data.csv";
     String line = "";
     
     try {
