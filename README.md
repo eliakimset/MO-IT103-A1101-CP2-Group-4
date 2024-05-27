@@ -4,3 +4,4 @@
 ```java
 private String csvFile = "/Users/set/Downloads/MotorPHEmployee/src/motorphemployee/data.csv"; //change depends on the file location of csv
 ```
+Locate your CSV File location first and apply it on inside of that string
