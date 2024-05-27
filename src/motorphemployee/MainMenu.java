@@ -5,7 +5,9 @@
 package motorphemployee;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -32,9 +34,10 @@ public class MainMenu extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     
-        private void loadCSVData() {
+    private String csvFile = "/Users/set/Downloads/MotorPHEmployee/src/motorphemployee/data.csv"; //change depends on the file location of csv
+
+        private void loadCSVData() { //Reader as of now and soon will be writter
     // Path to your CSV file
-    String csvFile = "/Users/set/Downloads/MotorPHEmployee/src/motorphemployee/data.csv"; //change depends on the file location of csv
     String line = "";
     String cvsSplitBy = ",";
 
@@ -52,13 +55,46 @@ public class MainMenu extends javax.swing.JFrame {
         while ((line = br.readLine()) != null) {
             String[] data = line.split(cvsSplitBy);
             model.addRow(data);
-        }
+        }                                                                                                       
 
     } catch (IOException e) {
         e.printStackTrace();
         JOptionPane.showMessageDialog(this, "Error loading data from CSV file: " + e.getMessage());
     }
 }
+        
+        private void saveCSVData() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(csvFile))) {
+
+            // Write the header row
+            for (int i = 0; i < model.getColumnCount(); i++) {
+                bw.write(model.getColumnName(i));
+                if (i < model.getColumnCount() - 1) {
+                    bw.write(",");
+                }
+            }
+            bw.newLine();
+
+            // Write data rows
+            for (int i = 0; i < model.getRowCount(); i++) {
+                for (int j = 0; j < model.getColumnCount(); j++) {
+                    bw.write(model.getValueAt(i, j).toString());
+                    if (j < model.getColumnCount() - 1) {
+                        bw.write(",");
+                    }
+                }
+                bw.newLine();
+            }
+                
+               JOptionPane.showMessageDialog(this, "Saved successfully!");
+
+         } catch (IOException e) {
+             e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error saving data to CSV file: " + e.getMessage());
+            }
+        }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -115,6 +151,7 @@ public class MainMenu extends javax.swing.JFrame {
         button_cleartext = new javax.swing.JButton();
         leave_overview = new javax.swing.JButton();
         button_information = new javax.swing.JButton();
+        button_save = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -303,6 +340,13 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        button_save.setText("Save");
+        button_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_saveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -317,70 +361,75 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1289, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel4)
-                                .addComponent(txtlastname)
-                                .addComponent(txtfirstname)
-                                .addComponent(txtaddress, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
-                                .addComponent(txtphonenumber)
-                                .addComponent(txtbirthday)
-                                .addComponent(txtid)))
-                        .addGap(91, 91, 91)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtsss)
-                            .addComponent(txtphilhealth)
-                            .addComponent(txtposition)
-                            .addComponent(txtsupervisor)
-                            .addComponent(txtpagibig)
-                            .addComponent(txttin)
-                            .addComponent(txtstatus)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(button_save, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(105, 105, 105)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel24))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel16)
-                            .addComponent(txtrice)
-                            .addComponent(jLabel18)
-                            .addComponent(txtphone)
-                            .addComponent(jLabel19)
-                            .addComponent(txtclothing)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21)
-                            .addComponent(txtbasicsalary)
-                            .addComponent(jLabel22)
-                            .addComponent(txtgrosssemi)
-                            .addComponent(jLabel23)
-                            .addComponent(txthourlyrate))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(button_calculatesalary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(button_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(leave_overview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(button_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(button_information, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(button_cleartext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30))))
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel4)
+                                        .addComponent(txtlastname)
+                                        .addComponent(txtfirstname)
+                                        .addComponent(txtaddress, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                                        .addComponent(txtphonenumber)
+                                        .addComponent(txtbirthday)
+                                        .addComponent(txtid)))
+                                .addGap(91, 91, 91)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtsss)
+                                    .addComponent(txtphilhealth)
+                                    .addComponent(txtposition)
+                                    .addComponent(txtsupervisor)
+                                    .addComponent(txtpagibig)
+                                    .addComponent(txttin)
+                                    .addComponent(txtstatus)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel14)
+                                            .addComponent(jLabel15)
+                                            .addComponent(jLabel24))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel16)
+                                    .addComponent(txtrice)
+                                    .addComponent(jLabel18)
+                                    .addComponent(txtphone)
+                                    .addComponent(jLabel19)
+                                    .addComponent(txtclothing)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel21)
+                                    .addComponent(txtbasicsalary)
+                                    .addComponent(jLabel22)
+                                    .addComponent(txtgrosssemi)
+                                    .addComponent(jLabel23)
+                                    .addComponent(txthourlyrate))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(button_calculatesalary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(button_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(leave_overview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(button_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(button_information, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(button_cleartext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(24, 24, 24))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,7 +443,9 @@ public class MainMenu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(button_save)
+                .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
@@ -533,8 +584,6 @@ public class MainMenu extends javax.swing.JFrame {
             Object[] rowData = { id, lastName, firstName, birthday, address, phoneNumber, sss, philhealth, tin, pagibig, status, position, supervisor, basicSalary, riceSubsidy, phoneAllowance, clothingAllowance, grossSemiMonthlyRate, hourlyRate };
             DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
             tblModel.addRow(rowData);
-        
-    
 }
 
     }//GEN-LAST:event_button_addActionPerformed
@@ -912,6 +961,11 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Will add new function here soon
     }//GEN-LAST:event_leave_overviewActionPerformed
+
+    private void button_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_saveActionPerformed
+        // TODO add your handling code here:
+        saveCSVData();
+    }//GEN-LAST:event_button_saveActionPerformed
     // Will transfer this methods on other file soon
     //SSS Method
             public static double calculateSSSContribution(double totalSalary) {
@@ -1114,6 +1168,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton button_delete;
     private javax.swing.JButton button_exit;
     private javax.swing.JButton button_information;
+    private javax.swing.JButton button_save;
     private javax.swing.JButton button_update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

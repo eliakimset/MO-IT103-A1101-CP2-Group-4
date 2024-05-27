@@ -37,78 +37,86 @@
                       <Component id="jScrollPane1" min="-2" pref="1289" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtlastname" max="32767" attributes="0"/>
-                              <Component id="txtfirstname" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtaddress" alignment="0" pref="401" max="32767" attributes="0"/>
-                              <Component id="txtphonenumber" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtbirthday" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtid" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtsss" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtphilhealth" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtposition" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtsupervisor" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtpagibig" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txttin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtstatus" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="button_save" min="-2" pref="126" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtlastname" max="32767" attributes="0"/>
+                                      <Component id="txtfirstname" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtaddress" alignment="0" pref="401" max="32767" attributes="0"/>
+                                      <Component id="txtphonenumber" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtbirthday" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtid" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtsss" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtphilhealth" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtposition" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtsupervisor" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtpagibig" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txttin" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtstatus" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtrice" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtphone" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtclothing" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtbasicsalary" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtgrosssemi" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txthourlyrate" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="button_calculatesalary" max="32767" attributes="0"/>
+                                      <Component id="button_update" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="leave_overview" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="button_delete" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="button_information" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="button_cleartext" alignment="1" min="-2" pref="126" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtrice" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtphone" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtclothing" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtbasicsalary" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtgrosssemi" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                          <Component id="txthourlyrate" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="button_calculatesalary" max="32767" attributes="0"/>
-                              <Component id="button_update" alignment="0" max="32767" attributes="0"/>
-                              <Component id="leave_overview" alignment="0" max="32767" attributes="0"/>
-                              <Component id="button_delete" alignment="0" max="32767" attributes="0"/>
-                              <Component id="button_information" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="button_cleartext" alignment="1" min="-2" pref="126" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -129,7 +137,9 @@
                       <Component id="jScrollPane1" min="-2" pref="368" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="button_save" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -669,6 +679,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_informationActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="button_save">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_saveActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
