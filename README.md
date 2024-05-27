@@ -1,6 +1,6 @@
 # MotorPH Employee Management Payroll System
 
-The main aim of developing a Payroll Management System in GUI is not just only to fully automate the process but to enhance the User Experience.
+The main aim of developing a Payroll Management System in GUI is not just only to fully automate the process but to enhance the User experience
 and satisfy our client's needs. In addition, we also integrated a database in which the user's data is stored and will help them to automate such reports further & for security purposes.
 
 # Change CSV File
