@@ -34,7 +34,7 @@ public class MainMenu extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     
-    private String csvFile = "/Users/set/Downloads/MotorPHEmployee/src/motorphemployee/data.csv"; //change depends on the file location of csv
+    private String csvFile = "src/motorphemployee/data.csv"; //Change depends on the file location of csv (optional)
 
         private void loadCSVData() { //CSV File Reader
             // Path to CSV File
