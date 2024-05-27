@@ -36,8 +36,8 @@ public class MainMenu extends javax.swing.JFrame {
     
     private String csvFile = "/Users/set/Downloads/MotorPHEmployee/src/motorphemployee/data.csv"; //change depends on the file location of csv
 
-        private void loadCSVData() { //Reader as of now and soon will be writter
-    // Path to your CSV file
+        private void loadCSVData() { //CSV File Reader
+            // Path to CSV File
     String line = "";
     String cvsSplitBy = ",";
 
@@ -95,6 +95,7 @@ public class MainMenu extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error saving data to CSV file: " + e.getMessage());
             }
         }
+                
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -850,6 +851,9 @@ public class MainMenu extends javax.swing.JFrame {
         // Call Withholding Tax methods
         double withholdingTax = calculateWithholdingTax(salaryAfterTax);
         
+        // Calculate total deductions
+        double totalDeductions = grossDeductions + withholdingTax;
+        
         // Calculate Net Pay
         double netPay = salaryAfterTax - withholdingTax;
         
@@ -861,7 +865,7 @@ public class MainMenu extends javax.swing.JFrame {
         message += "PhilHealth Contribution: PHP " + String.format("%.2f", philhealthContribution) + "\n";
         message += "Pagibig Contribution: PHP " + String.format("%.2f", pagibigContribution) + "\n";
         message += "Withholding Tax: PHP " + String.format("%.2f", withholdingTax) + "\n";
-        message += "Total Deduction: PHP " +  String.format("%.2f", grossDeductions) + "\n";
+        message += "Total Deduction: PHP " +  String.format("%.2f", totalDeductions) + "\n";
         message += "Net Pay: PHP " + String.format("%.2f", netPay) + "\n";
 
         JOptionPane.showMessageDialog(this, message);
