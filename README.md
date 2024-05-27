@@ -12,12 +12,6 @@ Password: password
 ![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/161408413/cf407713-0d34-4a53-ad9f-4565d0c86208)
 ![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/161408413/651f6ec7-5b8c-480e-a378-807204839b3c)
 
-# Change CSV File
-```java
-private String csvFile = "/Users/set/Downloads/MotorPHEmployee/src/motorphemployee/data.csv"; //change depends on the file location of csv
-```
-Locate your CSV File location first and apply it on inside of that string
-
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 - [x] Features 1 : Provision of a more intuitive and interactive interface in the MotorPH Employee App by implementing a version of the application that has a Graphical User Interface based on the class diagram that you have designed. The application should be able to handle errors in the input of the users.
 - [x] Features 2 : The current version of MotorPH Employee App only displays the information of an employee together with his/her pay details once prompted. This change request aims to provide a more intuitive and interactive interface in the MotorPH Employee App by incorporating employee record views.This includes:  
