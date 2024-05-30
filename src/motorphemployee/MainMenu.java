@@ -4,6 +4,7 @@
  */
 package motorphemployee;
 
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -25,6 +26,11 @@ public class MainMenu extends javax.swing.JFrame {
         initComponents();
         loadCSVData();
         jTable1.setAutoCreateRowSorter(true);
+        
+        //fixed frame
+        this.setResizable(false); 
+        //Set Icon image
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("MotorIcon.png")));
     }
 
     /**
@@ -530,9 +536,9 @@ public class MainMenu extends javax.swing.JFrame {
                                 .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel5))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtbirthday, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txttin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txttin)
+                                .addComponent(txtbirthday))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel6)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -548,7 +554,7 @@ public class MainMenu extends javax.swing.JFrame {
                                     .addComponent(jLabel23)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txthourlyrate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(1460, 868));
