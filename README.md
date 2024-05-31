@@ -25,5 +25,5 @@ Password: password
 (2) View of specific Emloyee Record;  
 (3) View of the Pay Details of a specific employee.
 - [x] Features 3 : Employee records must be updated and deleted as needed. Current version does not have the functionality to update and delete records from the file.
-- [x] Features 4 : Leave application is currently not a part of the application, it needs to be included in the functionalities of the MotorPH Employee application
+- [ ] Features 4 : Leave application is currently not a part of the application, it needs to be included in the functionalities of the MotorPH Employee application
 - [ ] Features 5 : To make the application secure, the users of the application must enter their correct login credentials to be able to access the application properly.
