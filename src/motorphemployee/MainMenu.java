@@ -891,7 +891,7 @@ public class MainMenu extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(null, "Please enter a valid integer for worked days.");
          }
         }
-        // Calculate total salary
+        // Calculate total salary 
         double totalSalary = workedDays * hourlyRate * 8; //Assuming working 8 hours a day
 
         // Call SSS, PhilHealth, Pagibig methods
