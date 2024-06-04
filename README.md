@@ -27,3 +27,5 @@ Password: password
 - [x] Features 3 : Employee records must be updated and deleted as needed. Current version does not have the functionality to update and delete records from the file.
 - [x] Features 4 : Leave application is currently not a part of the application, it needs to be included in the functionalities of the MotorPH Employee application
 - [x] Features 5 : To make the application secure, the users of the application must enter their correct login credentials to be able to access the application properly.
+- [ ] Create test cases.
+- [ ] Conduct QA testing.
