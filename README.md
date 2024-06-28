@@ -18,7 +18,7 @@ and satisfy our client's needs. In addition, we also integrated a database in wh
 
 # Login Page #
 
-Employee's Login Page
+##Employee's Login Page
 
 ![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/153243302/a16bd409-95b2-4847-afb0-84cbaaba4483)
 
@@ -28,7 +28,7 @@ Username: admin
 
 Password: password
 
-HR's Login Page
+##HR's Login Page
 
 ![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/153243302/de01c6ab-bcf5-4334-8be3-33ae80592e35)
 
@@ -57,6 +57,7 @@ Password: password
 ![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/106713068/d0c20dd6-e577-4203-a863-317f7c2c87ac)
 
 
+# Built with Java
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 [x] Features 1 : Provision of a more intuitive and interactive interface in the MotorPH Employee App by implementing a version of the application that has a Graphical User Interface based on the class diagram that you have designed. The application should be able to handle errors in the input of the users.
