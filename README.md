@@ -39,40 +39,43 @@ Password: password
 
 # Dashboard Employee #
 
-![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/106713068/95128728-5ddc-46eb-9495-6a0385579eaa)
+![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/153243302/bd0a42ab-bfc9-4b27-8d75-389981df24c1)
+
 
 # HR Dashboard #
 
-
-![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/106713068/db722cae-1b77-4293-933b-f1a495066af5)
+![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/153243302/9fadff67-4f81-46a0-8504-baa80375cefa)
 
 
 # Leave Management #
 
+![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/153243302/e5439f6e-0ee3-4fd4-92b5-a37aaa90a2e4)
 
-![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/106713068/9cd2623d-15bc-4116-aad9-c30190446e3a)
 
 # Calculate Salary #
 
-![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/106713068/d0c20dd6-e577-4203-a863-317f7c2c87ac)
+![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/153243302/078d8ddd-7694-4a5d-989c-e0a540093f0a)
 
 
 # Built with Java
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-[x] Features 1 : Provision of a more intuitive and interactive interface in the MotorPH Employee App by implementing a version of the application that has a Graphical User Interface based on the class diagram that you have designed. The application should be able to handle errors in the input of the users.
+![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/153243302/eb4fcdf3-8ba8-41d0-9366-d16e7d63d3f8)
 
-[x] Features 2 : The current version of MotorPH Employee App only displays the information of an employee together with his/her pay details once prompted. This change request aims to provide a more intuitive and interactive interface in the MotorPH Employee App by incorporating employee record views.This includes:  
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- [x] Features 1 : Provision of a more intuitive and interactive interface in the MotorPH Employee App by implementing a version of the application that has a Graphical User Interface based on the class diagram that you have designed. The application should be able to handle errors in the input of the users.
+
+- [x] Features 2 : The current version of MotorPH Employee App only displays the information of an employee together with his/her pay details once prompted. This change request aims to provide a more intuitive and interactive interface in the MotorPH Employee App by incorporating employee record views.This includes:  
 (1) View of all employee records;  
 (2) View of specific Emloyee Record;  
 (3) View of the Pay Details of a specific employee.
 
-[x] Features 3 : Employee records must be updated and deleted as needed. Current version does not have the functionality to update and delete records from the file.
+- [x] Features 3 : Employee records must be updated and deleted as needed. Current version does not have the functionality to update and delete records from the file.
 
-[x] Features 4 : Leave application is currently not a part of the application, it needs to be included in the functionalities of the MotorPH Employee application
+- [x] Features 4 : Leave application is currently not a part of the application, it needs to be included in the functionalities of the MotorPH Employee application
 
-[x] Features 5 : To make the application secure, the users of the application must enter their correct login credentials to be able to access the application properly.
+- [x] Features 5 : To make the application secure, the users of the application must enter their correct login credentials to be able to access the application properly.
 
-[x] Create test cases.
+- [x] Create test cases.
 
-[x] Conduct QA testing.
+- [x] Conduct QA testing.
