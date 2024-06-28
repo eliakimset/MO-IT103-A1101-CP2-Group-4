@@ -19,23 +19,15 @@ and satisfy our client's needs. In addition, we also integrated a database in wh
 # Login Page #
 
 ## Employee's Login Page
-
 ![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/153243302/a16bd409-95b2-4847-afb0-84cbaaba4483)
-
 Employee Number: 1-34
-
 Username: admin
-
 Password: password
 
 ## HR's Login Page
-
 ![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/153243302/de01c6ab-bcf5-4334-8be3-33ae80592e35)
-
 Username: admin
-
 Password: password
-
 
 # Dashboard Employee #
 
@@ -59,7 +51,8 @@ Password: password
 
 # Built with Java
 
-![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/153243302/eb4fcdf3-8ba8-41d0-9366-d16e7d63d3f8)
+![image](https://github.com/eliakimset/MO-IT103-A1101-CP2-Group-4/assets/153243302/856763a4-49e1-4b49-b67c-68facdd5437c)
+
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
