@@ -147,6 +147,7 @@ public class LandingPage extends javax.swing.JFrame {
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         // TODO add your handling code here:
+        // Exit the application
         System.exit(0);  
     }//GEN-LAST:event_exitActionPerformed
 

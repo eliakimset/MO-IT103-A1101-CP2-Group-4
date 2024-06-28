@@ -157,6 +157,7 @@ public class ChangeCredentials extends javax.swing.JFrame {
 
     private void showpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpasswordActionPerformed
         // TODO add your handling code here:
+        // Toggle the visibility of the password
         if (showpassword.isSelected()){
             txtpassword.setEchoChar((char)0);
         }
@@ -169,12 +170,14 @@ public class ChangeCredentials extends javax.swing.JFrame {
     private void applyChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyChangesActionPerformed
         String newUsername = txtusername.getText().trim();
         String newPassword = new String(txtpassword.getPassword()).trim();
-
+        
+        // Checker if username or password is empty
         if (newUsername.isEmpty() || newPassword.isEmpty()) {
             showError("Username and Password cannot be empty.");
             return;
         }
-
+        
+        // Update credentials in the file
         if (updateCredentialsInFile(employeeNumber, newUsername, newPassword)) {
             showSuccess("Credentials updated successfully.");
             clearFields();
@@ -184,7 +187,7 @@ public class ChangeCredentials extends javax.swing.JFrame {
     }
 
      private boolean updateCredentialsInFile(String employeeNumber, String newUsername, String newPassword) {
-        String filePath = "src/motorphemployee/data.csv";
+    String filePath = "src/motorphemployee/data.csv";
     List<String> lines = new ArrayList<>();
 
     try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -192,6 +195,7 @@ public class ChangeCredentials extends javax.swing.JFrame {
         while ((line = br.readLine()) != null) {
             String[] data = line.split(",");
             if (data.length >= 22 && data[0].equals(employeeNumber)) {
+                // Update the username and password
                 data[19] = newUsername;
                 data[20] = newPassword; 
                 line = String.join(",", data);
@@ -217,20 +221,24 @@ public class ChangeCredentials extends javax.swing.JFrame {
 }
      
     private void clearFields() {
+         // Clear the username and password fields
         txtusername.setText("");
         txtpassword.setText("");
     }
 
     private void showError(String message) {
+        // Display an error message
         javax.swing.JOptionPane.showMessageDialog(this, message, "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
     }
 
     private void showSuccess(String message) {
+        // Display a success message
         javax.swing.JOptionPane.showMessageDialog(this, message, "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_applyChangesActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         // TODO add your handling code here:
+        // Handle the cancel button action
         this.dispose();
     }//GEN-LAST:event_cancelActionPerformed
 

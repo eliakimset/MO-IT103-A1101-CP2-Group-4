@@ -82,6 +82,7 @@ public class LeaveForm extends javax.swing.JFrame {
             }
         });
 
+        reason.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         reason.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reasonActionPerformed(evt);
@@ -140,13 +141,13 @@ public class LeaveForm extends javax.swing.JFrame {
                     .addComponent(days, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(reason, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel5)
+                    .addComponent(reason, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancel)
                     .addComponent(submit))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(378, 285));
@@ -189,6 +190,7 @@ public class LeaveForm extends javax.swing.JFrame {
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         // TODO add your handling code here:
+        // Close the current window 
         this.dispose();
     }//GEN-LAST:event_cancelActionPerformed
 

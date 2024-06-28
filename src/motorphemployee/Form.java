@@ -529,6 +529,7 @@ public class Form extends javax.swing.JFrame {
 
     private void button_addemployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_addemployeeActionPerformed
            // TODO add your handling code here:
+           //Checker if any fields are empty
     if (txt_id.getText().isEmpty() || txt_address.getText().isEmpty() || txt_basicsalary.getText().isEmpty() || txt_birthday.getText().isEmpty() || txt_clothing.getText().isEmpty() || txt_firstname.getText().isEmpty() || txt_grosssemi.getText().isEmpty() || txt_hourlyrate.getText().isEmpty() || txt_lastname.getText().isEmpty() || txt_pagibig.getText().isEmpty() || txt_philhealth.getText().isEmpty() || txt_phone.getText().isEmpty() || txt_phonenumber.getText().isEmpty() || txt_position.getText().isEmpty() || txt_rice.getText().isEmpty() || txt_sss.getText().isEmpty() || txt_status.getText().isEmpty() || txt_supervisor.getText().isEmpty() || txt_tin.getText().isEmpty()) {
         JOptionPane.showMessageDialog(this, "Please Enter All Data");
     } else {
@@ -574,8 +575,8 @@ public class Form extends javax.swing.JFrame {
             Object[] rowData = {id, lastName, firstName, birthday, address, phoneNumber, sss, philhealth, tin, pagibig, status, position, supervisor, basicSalary, riceSubsidy, phoneAllowance, clothingAllowance, grossSemiMonthlyRate, hourlyRate, "admin", "password", "12", "0", "0"}; //Automatically adding default username and password and also the leave informations
             saveToCSV(rowData);
 
-            // Display success message
             JOptionPane.showMessageDialog(this, "Employee added successfully. You can now log in with default login credentials");
+            
             
             this.dispose();
         } catch (NumberFormatException e) {
@@ -584,6 +585,7 @@ public class Form extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_button_addemployeeActionPerformed
 
+    // Method to read data from a CSV file
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -593,7 +595,7 @@ public class Form extends javax.swing.JFrame {
           try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
                 String line;
              while ((line = br.readLine()) != null) {
-                    String[] values = line.split(","); // Assuming CSV file is comma-separated
+                    String[] values = line.split(",");
                  data.add(values);
              }
           } catch (IOException e) {
@@ -602,6 +604,7 @@ public class Form extends javax.swing.JFrame {
          return data;
           }
     
+        // Method to save data to a CSV file
         private void saveToCSV(Object[] data) {
     try (FileWriter csvWriter = new FileWriter("src/motorphemployee/data.csv", true)) {
         for (Object field : data) {

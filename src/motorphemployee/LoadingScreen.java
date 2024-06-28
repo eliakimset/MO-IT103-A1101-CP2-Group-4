@@ -20,7 +20,7 @@ public class LoadingScreen extends javax.swing.JFrame {
     public LoadingScreen() {
         initComponents();
       
-       
+       // Timer for the progress bar
         Timer progressBarTimer = new Timer(30, new ActionListener() {
             int counter = 0;
 
@@ -28,6 +28,7 @@ public class LoadingScreen extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 counter++;
                 progressBar.setValue(counter);
+                // Check if progress bar reached 100%
                 if (counter >= 100) {
                     ((Timer) e.getSource()).stop();
                     dispose();
@@ -35,7 +36,8 @@ public class LoadingScreen extends javax.swing.JFrame {
                 }
             }
         });
-        progressBarTimer.start();
+        progressBarTimer.start(); // Start the progress bar timer
+
     }
 
 

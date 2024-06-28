@@ -186,17 +186,20 @@ public class LeaveApproval extends javax.swing.JFrame {
     
     leaveManagement.setVisible(true);
     
+    // Dispose of the current window
     this.dispose();
     }//GEN-LAST:event_backActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         // TODO add your handling code here:
+        // Handle the exit button action
         this.dispose();
     }//GEN-LAST:event_ExitActionPerformed
 
     private void approvedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approvedActionPerformed
-      int selectedRowIndex = jTable1.getSelectedRow();
-    if (selectedRowIndex == -1) {
+        // Get the selected row index
+        int selectedRowIndex = jTable1.getSelectedRow();
+        if (selectedRowIndex == -1) {
         JOptionPane.showMessageDialog(this, "Please select a leave request to approve.", "Error", JOptionPane.ERROR_MESSAGE);
         return;
     }
@@ -207,7 +210,7 @@ public class LeaveApproval extends javax.swing.JFrame {
     int days = Integer.parseInt((String) jTable1.getValueAt(selectedRowIndex, 2));
     String reason = (String) jTable1.getValueAt(selectedRowIndex, 3);
     
-    // Add the approval status
+    // Set the approval status to "Yes"
     String approval = "Yes";
     
     // Update leave credits and approved leaves
@@ -222,18 +225,20 @@ public class LeaveApproval extends javax.swing.JFrame {
 }    
     
     private void writeToFile(String employeeId, String leaveType, int days, String approval, String reason) {
+        // Define the path to the CSV file
         String csvFile = "src/motorphemployee/leaves.csv";
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile, true))) {
+        // Write the data to the CSV file
         writer.write(employeeId + "," + leaveType + "," + days + "," + reason + "," + approval + "\n");
         JOptionPane.showMessageDialog(this, "Leave request processed successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
     } catch (IOException e) {
         JOptionPane.showMessageDialog(this, "An error occurred while processing the leave request: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-    }
-    
+    }  
     }//GEN-LAST:event_approvedActionPerformed
 
     private void rejectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectedActionPerformed
         // TODO add your handling code here:
+    // Get the selected row index
     int selectedRowIndex = jTable1.getSelectedRow();
     if (selectedRowIndex == -1) {
         JOptionPane.showMessageDialog(this, "Please select a leave request to reject.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -246,7 +251,7 @@ public class LeaveApproval extends javax.swing.JFrame {
     int days = Integer.parseInt((String) jTable1.getValueAt(selectedRowIndex, 2));
     String reason = (String) jTable1.getValueAt(selectedRowIndex, 3);
     
-    // Add the approval status
+    // Set the approval status to "No"
     String approval = "No";
     
     // Update rejected leaves
@@ -262,10 +267,11 @@ public class LeaveApproval extends javax.swing.JFrame {
 
      //User must save it first to reflect on the CSV File for validation
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        // Get the table model
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
     try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/motorphemployee/pendingleaves.csv"))) {
-        // Write data rows
+        // Write data rows to the CSV file
         for (int i = 0; i < model.getRowCount(); i++) {
             for (int j = 0; j < model.getColumnCount(); j++) {
                 bw.write(model.getValueAt(i, j).toString());
@@ -279,10 +285,11 @@ public class LeaveApproval extends javax.swing.JFrame {
     } catch (IOException e) {
         e.printStackTrace();
         JOptionPane.showMessageDialog(this, "Error saving data to CSV file: " + e.getMessage());
-}
+    }
     }
     
     private boolean updateLeaveCredits(String employeeId, int days, boolean isApproved) {
+    // Define the path to the data file
     String filePath = "src/motorphemployee/data.csv";
     List<String[]> records = new ArrayList<>();
     boolean found = false;
@@ -297,15 +304,15 @@ public class LeaveApproval extends javax.swing.JFrame {
                 int rejectedLeaves = Integer.parseInt(data[23]);
 
                 if (isApproved) {
-                    if (leaveCredits >= days) {
-                        data[21] = String.valueOf(leaveCredits - days);
-                        data[22] = String.valueOf(approvedLeaves + days);
+                    if (leaveCredits > 0) {
+                        data[21] = String.valueOf(leaveCredits - 1); // Deduct 1 leave credit
+                        data[22] = String.valueOf(approvedLeaves + 1); // Increment apporved leaves
                     } else {
                         JOptionPane.showMessageDialog(this, "Not enough leave credits.", "Error", JOptionPane.ERROR_MESSAGE);
                         return false;
                     }
                 } else {
-                    data[23] = String.valueOf(rejectedLeaves + 1);
+                    data[23] = String.valueOf(rejectedLeaves + 1); // Increment rejected leaves
                 }
                 found = true;
             }
@@ -322,6 +329,7 @@ public class LeaveApproval extends javax.swing.JFrame {
     }
     
     try (PrintWriter pw = new PrintWriter(new FileWriter(filePath))) {
+        // Write the updated data back to the file
         for (String[] record : records) {
             pw.println(String.join(",", record));
         }

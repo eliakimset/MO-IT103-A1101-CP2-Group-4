@@ -909,10 +909,12 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void button_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_exitActionPerformed
         // TODO add your handling code here:
+        // Exit the application
         System.exit(0);
     }//GEN-LAST:event_button_exitActionPerformed
 
     private void button_view_salaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_view_salaryActionPerformed
+        // TODO add your handling code here:
         String csvFilePath = "src/motorphemployee/data.csv";
         
     try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
@@ -938,10 +940,12 @@ public class Dashboard extends javax.swing.JFrame {
     String clothingAllowanceStr = "";
     String grossSemiMonthlyRateStr = "";
     String hourlyRateStr = "";
-
+    
+    // Read the CSV file
     while ((line = reader.readLine()) != null) {
         String[] parts = line.split(",");
         if (parts.length >= 21 && parts[0].trim().equals(employeeNumber)) {
+             // Assign employee data to variables
             lastName = parts[1].trim();
             firstName = parts[2].trim();
             birthday = parts[3].trim();
@@ -1113,6 +1117,7 @@ public class Dashboard extends javax.swing.JFrame {
         while ((line = reader.readLine()) != null) {
             String[] parts = line.split(",");
             if (parts.length >= 21 && parts[0].trim().equals(employeeNumber)) {
+                 // Set UI components with employee data
                 String lastName = parts[1].trim();
                 String firstName = parts[2].trim();
                 String birthday = parts[3].trim();

@@ -1274,7 +1274,7 @@ if (jTable1.getSelectedRowCount() == 1) {
         tblModel.setRowCount(0);
         loadCSVData();
     }//GEN-LAST:event_refreshActionPerformed
-    // Will transfer this methods on other file soon
+
     //SSS Method
             public static double calculateSSSContribution(double totalSalary) {
                 double sssContribution = 0;

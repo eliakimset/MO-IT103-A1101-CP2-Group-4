@@ -136,7 +136,7 @@ public class LeaveManagement extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cancelActionPerformed
     
-   private void displayLeaves() {
+   private void displayLeaves() { // This method displays leaves stored in a CSV file into a JTable
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0); // Clear existing rows
         
