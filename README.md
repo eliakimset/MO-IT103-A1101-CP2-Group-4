@@ -2,7 +2,6 @@
 
 MO-IT103 Computer Programming 2
 
-
 This project was made by Group 4 | IT103 | A1101 Members : | John Paul P. | Eliakim Set | El Chad Chavez | Emersson Aporado | Nesty Loy
 
 The main aim of developing a Payroll Management System in GUI is not just only to fully automate the process but to enhance the User experience
